@@ -1,7 +1,14 @@
-from curses import KEY_B2
+
 from random import randint
 from pygame import *
 
+win_width = 800
+win_height = 600
+window = display.set_mode((win_width, win_height))
+display.set_caption("Maze")
+#background = transform.scale(image.load("galaxy.jpg"), (win_width, win_height))
+back =(200, 200, 200)
+window.fill(back)
 
 class GameSprite(sprite.Sprite):
     def __init__(self, player_image, player_x, player_y, player_speed, w, h):
@@ -28,3 +35,13 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys_pressed[K_Down] and self.rect.y < win_height -80:
             self.rect.y += self.speed
+          
+pravoa = Player('pesik.png', 30, 200, 4, 50, 150)
+levoa = Player('pesik2.png', 520, 200, 4, 50, 150)
+masik = GameSprite('', 200, 200, 4, 50, 50)
+
+game = True
+clock = time.Clock()
+FPS = 600
+
+finish = False
